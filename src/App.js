@@ -4,6 +4,24 @@ import './App.css';
 
 class App extends Component {
 
+  // create constructor, pass in props as param
+  constructor(props) {
+    super(props)
+    console.log('constructor')
+  }
+
+  // lifecycle methods
+
+  // calls before the component is rendered
+  componentWillMount() {
+    console.log('will mount')
+  }
+
+  // calls immediately after rendering is finished
+  componentDidMount() {
+    console.log('mounted')
+  }
+
   // set state
   state = {
     toggle: true,
