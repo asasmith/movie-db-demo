@@ -4,6 +4,15 @@ import './App.css';
 
 class App extends Component {
 
+  state = {
+    input: 'Hello'
+  }
+
+  updateInput = (e) => {
+    this.setState({
+      input: e.target.value,
+    })
+  }
   submit = () => {
     console.log(this.text.value)
   }
@@ -22,7 +31,12 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
+        {/* controlled input */}
+        <input type='text' onChange={this.updateInput} value={this.state.input} />
+
+        {/* uncontrolled input */}
         <input type='text' ref={(input) => this.text = input} />
+
         <button onClick={this.submit}>Show Value</button>
       </div>
     );
