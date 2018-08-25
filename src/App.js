@@ -1,33 +1,32 @@
+/* eslint react/destructuring-assignment: 0 */
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Movie from './Movie'
+import Movie from './Movie';
 
-const API_KEY = process.env.REACT_APP_MOVIE_DB_KEY
+const API_KEY = process.env.REACT_APP_MOVIE_DB_KEY;
 
 class App extends Component {
-
   state = {
     movies: [],
   }
+
   async componentDidMount() {
     try {
-      const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)
-      const movies = await res.json()
-      console.log(movies)
+      const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`);
+      const movies = await res.json();
+      console.log(movies);
 
       this.setState({
         movies: movies.results,
-      })
-
-    } catch(e) {
-      console.log(e)
+      });
+    } catch (e) {
+      console.log(e);
     }
   }
-  
+
   render() {
-    
     return (
       <div className="App">
         <header className="App-header">
