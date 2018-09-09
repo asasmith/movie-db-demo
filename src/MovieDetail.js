@@ -1,5 +1,7 @@
 /* eslint react/destructuring-assignment: 0 */
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Poster } from './Movie';
 
 const API_KEY = process.env.REACT_APP_MOVIE_DB_KEY;
 
@@ -26,15 +28,40 @@ class MovieDetail extends Component {
   render() {
     const { movie } = this.state;
     return (
-      <div>
-        <img src={`${BACKDROP_PATH}${movie.backdrop_path}`} alt={movie.title} />
-        <img src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
-        <h1>{movie.title}</h1>
-        <h3>{movie.release_date}</h3>
-        <p>{movie.overview}</p>
-      </div>
+      <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
+        <MovieInfo>
+          <Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+          <div>
+            <h1>{movie.title}</h1>
+            <h3>{movie.release_date}</h3>
+            <p>{movie.overview}</p>
+          </div>
+        </MovieInfo>
+      </MovieWrapper>
     );
   }
 }
 
 export default MovieDetail;
+
+const MovieWrapper = styled.div`
+  background: url(${props => props.backdrop}) no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 50vh;
+`;
+
+const MovieInfo = styled.div`
+  display: flex;
+  background: #fff;
+  padding: 2rem 10%;
+  text-align: left;
+  > div {
+    margin-left: 1.5rem;
+  } 
+  img {
+    min-width: 154px;
+    position: relative;
+    top: -5rem;
+  }
+`;
