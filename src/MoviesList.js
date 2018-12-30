@@ -1,6 +1,6 @@
 /* eslint react/destructuring-assignment: 0 */
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
 import Movie from './Movie';
 
 const API_KEY = process.env.REACT_APP_MOVIE_DB_KEY;
@@ -26,11 +26,19 @@ class MoviesList extends Component {
 
   render() {
     return (
-      <div>
+      <MovieGrid>
         {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
-      </div>
+      </MovieGrid>
     );
   }
 }
 
 export default MoviesList;
+
+const MovieGrid = styled.div`
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-row-gap: 1rem;
+`;
+
