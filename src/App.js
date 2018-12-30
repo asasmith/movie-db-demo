@@ -1,5 +1,5 @@
 /* eslint react/destructuring-assignment: 0 */
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Link,
