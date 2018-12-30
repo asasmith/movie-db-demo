@@ -1,11 +1,11 @@
 /* eslint react/destructuring-assignment: 0 */
-import React, { pureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import Movie from './Movie';
 
 const API_KEY = process.env.REACT_APP_MOVIE_DB_KEY;
 
-class MoviesList extends pureComponent {
+class MoviesList extends PureComponent {
   state = {
     movies: [],
   }
