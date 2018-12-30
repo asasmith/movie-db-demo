@@ -1,11 +1,11 @@
 /* eslint react/destructuring-assignment: 0 */
-import React, { Component } from 'react';
+import React, { pureComponent } from 'react';
 import styled from 'styled-components';
 import Movie from './Movie';
 
 const API_KEY = process.env.REACT_APP_MOVIE_DB_KEY;
 
-class MoviesList extends Component {
+class MoviesList extends pureComponent {
   state = {
     movies: [],
   }
@@ -41,4 +41,3 @@ const MovieGrid = styled.div`
   grid-template-columns: repeat(6, 1fr);
   grid-row-gap: 1rem;
 `;
-
